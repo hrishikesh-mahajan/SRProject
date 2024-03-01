@@ -20,7 +20,7 @@ Design and implement an AI Assignment Assessment Bot that is triggered by a stud
 - The bot will compile all the reports in a single spreadsheet file for the faculty to review.
 - The faculty will be able to review the reports and grade the student.
 - The bot can (optionally) run and check for the code quality and provide feedback to the student.
-  
+
 ## Task Bots & IQ Bots
 
 - Submission Bot (optional)
