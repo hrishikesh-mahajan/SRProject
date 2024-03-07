@@ -15,3 +15,9 @@ Design and implement an AI Assignment Assessment Bot that is triggered by a stud
 - Check for plagiarism (optionally) and AI detection using NLP and Transformers.
 - Generate an overall report and provide feedback to the student.
 - Compile all the reports in a single spreadsheet file for the faculty to review.
+
+## Outcomes
+
+- The bot will be able to assess the student's submission and provide feedback to the student.
+- The bot will be able to provide a grade for the assignment.
+- Faculties can easily assess the student's submission.
