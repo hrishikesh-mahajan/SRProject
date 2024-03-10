@@ -1,0 +1,171 @@
+<mxfile host="65bd71144e">
+    <diagram id="uKekbxrDT_SeHGFpZyS7" name="Page-1">
+        <mxGraphModel dx="746" dy="563" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3000" pageHeight="200" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="76" style="edgeStyle=none;html=1;labelBackgroundColor=none;labelBorderColor=none;fontColor=#18141D;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;" edge="1" parent="1" source="3" target="64">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="676.5000000000002" y="104.00000000000011"/>
+                            <mxPoint x="752.5000000000002" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3" value="Download New Files" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="604.5000000000002" y="64.00000000000011" width="60" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" style="edgeStyle=none;html=1;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;rounded=0;fontColor=#18141D;labelBackgroundColor=none;labelBorderColor=none;" edge="1" parent="1" source="5" target="7">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1256.5000000000002" y="104.00000000000011"/>
+                            <mxPoint x="1332.5000000000002" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="Start Assesment Process" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1124.5000000000002" y="74.00000000000011" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="" style="edgeStyle=none;html=1;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;rounded=0;fontColor=#18141D;labelBackgroundColor=none;labelBorderColor=none;" edge="1" parent="1" source="7" target="30">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1436.5000000000002" y="104.00000000000011"/>
+                            <mxPoint x="1512.5000000000002" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="Check Format" style="whiteSpace=wrap;html=1;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1344.5000000000002" y="64.00000000000011" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="edgeStyle=none;html=1;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;rounded=0;fontColor=#18141D;labelBackgroundColor=none;labelBorderColor=none;" edge="1" parent="1" source="9" target="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="516.5000000000002" y="104.00000000000011"/>
+                            <mxPoint x="592.5000000000002" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="Google Drive Submissions&amp;nbsp;&lt;br&gt;Folder" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="384.5000000000002" y="64.00000000000011" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" style="edgeStyle=none;html=1;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;rounded=0;fontColor=#18141D;labelBackgroundColor=none;labelBorderColor=none;" edge="1" parent="1" source="11" target="5">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1036.5000000000002" y="104.00000000000011"/>
+                            <mxPoint x="1112.5000000000002" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="Open one file at a time" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="944.5000000000002" y="64.00000000000011" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="" style="shape=collate;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;rounded=0;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="244.50000000000023" y="84.00000000000011" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="Student" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;rounded=0;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="108.99999999999955" y="74.00000000000011" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" style="edgeStyle=none;html=1;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;rounded=0;fontColor=#18141D;labelBackgroundColor=none;labelBorderColor=none;" edge="1" parent="1" source="30" target="52">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1616.5000000000002" y="104.00000000000011"/>
+                            <mxPoint x="1692.5000000000002" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="Check match with Lab Manual" style="whiteSpace=wrap;html=1;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1524.5000000000002" y="64.00000000000011" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="" style="edgeStyle=none;html=1;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;rounded=0;fontColor=#18141D;labelBackgroundColor=none;labelBorderColor=none;" edge="1" parent="1" source="34" target="36">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="2056.5" y="104.00000000000011"/>
+                            <mxPoint x="2132.5" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="34" value="Generate Report" style="whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1924.5" y="74.00000000000011" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="" style="edgeStyle=none;html=1;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;rounded=0;fontColor=#18141D;labelBackgroundColor=none;labelBorderColor=none;" edge="1" parent="1" source="36" target="40">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="2276.5" y="104.00000000000011"/>
+                            <mxPoint x="2352.5" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="Student Feedback" style="whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="2144.5" y="74.00000000000011" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="" style="edgeStyle=none;html=1;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;rounded=0;fontColor=#18141D;labelBackgroundColor=none;labelBorderColor=none;" edge="1" parent="1" source="40" target="50">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="2496.5" y="104.00000000000011"/>
+                            <mxPoint x="2572.5" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="40" value="Send E-mail" style="whiteSpace=wrap;html=1;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="2364.5" y="74.00000000000011" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" style="edgeStyle=none;html=1;labelBackgroundColor=none;labelBorderColor=none;fontColor=#18141D;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;" edge="1" parent="1" source="50" target="57">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="2716.5" y="104.00000000000011"/>
+                            <mxPoint x="2792.5" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="50" value="Add results to the Faculty's copy" style="whiteSpace=wrap;html=1;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="2584.5" y="74.00000000000011" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" style="edgeStyle=none;html=1;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;rounded=0;fontColor=#18141D;labelBackgroundColor=none;labelBorderColor=none;" edge="1" parent="1" source="52" target="34">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1836.5000000000002" y="104.00000000000011"/>
+                            <mxPoint x="1912.5" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="52" value="Conclude Assessment Process" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;rounded=0;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1704.5000000000002" y="74.00000000000011" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="Stop" style="ellipse;whiteSpace=wrap;html=1;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="2804.5" y="64.00000000000011" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" style="edgeStyle=none;html=1;labelBackgroundColor=none;labelBorderColor=none;fontColor=#18141D;noEdgeStyle=1;orthogonal=1;fillColor=#f5f5f5;strokeColor=#666666;" edge="1" parent="1" source="64" target="11">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="856.5000000000002" y="104.00000000000011"/>
+                            <mxPoint x="932.5000000000002" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" value="Repeat for all files" style="shape=process;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;rounded=0;labelBackgroundColor=none;labelBorderColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="764.5000000000002" y="64.00000000000011" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="Uploads new file" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=none;labelBorderColor=none;fontColor=#18141D;fillColor=#f5f5f5;strokeColor=#666666;noEdgeStyle=1;orthogonal=1;" edge="1" parent="1" source="23" target="18">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="179.5" y="134" as="sourcePoint"/>
+                        <mxPoint x="229.5" y="84" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="156.50000000000023" y="104.00000000000011"/>
+                            <mxPoint x="232.50000000000023" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="84" value="Bot is triggered" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=none;labelBorderColor=none;fontColor=#18141D;fillColor=#f5f5f5;strokeColor=#666666;noEdgeStyle=1;orthogonal=1;" edge="1" parent="1" source="18" target="9">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="308.5" y="198.5" as="sourcePoint"/>
+                        <mxPoint x="358.5" y="148.5" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="296.5000000000002" y="104.00000000000011"/>
+                            <mxPoint x="372.5000000000002" y="104.00000000000011"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
