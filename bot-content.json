@@ -1,0 +1,2149 @@
+{
+  "triggers": [],
+  "nodes": [
+    {
+      "uid": "86c2ea24-d841-459d-aa8c-37a17c6d35b0",
+      "commandName": "python.commands.openScript",
+      "packageName": "Python",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "session",
+          "value": {
+            "type": "STRING",
+            "string": "Default"
+          }
+        },
+        {
+          "name": "scriptOption",
+          "value": {
+            "type": "STRING",
+            "string": "FILE"
+          }
+        },
+        {
+          "name": "file",
+          "value": {
+            "type": "FILE",
+            "expression": "file://$BotScriptPath$"
+          }
+        },
+        {
+          "name": "version",
+          "value": {
+            "type": "STRING",
+            "string": "3"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "932b1500-7e05-4864-9ab5-b632bbc27c3a",
+      "commandName": "extractText",
+      "packageName": "PDF",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "filePath",
+          "value": {
+            "type": "FILE",
+            "expression": "file://$OriginalCopyPDFPath$"
+          }
+        },
+        {
+          "name": "extractTextType",
+          "value": {
+            "type": "STRING",
+            "string": "PLAIN"
+          }
+        },
+        {
+          "name": "pageOption",
+          "value": {
+            "type": "STRING",
+            "string": "ALL"
+          }
+        },
+        {
+          "name": "outputFile",
+          "value": {
+            "type": "FILE",
+            "expression": "file://$OriginalCopyTXTPath$"
+          }
+        },
+        {
+          "name": "overwriteFile",
+          "value": {
+            "type": "BOOLEAN",
+            "boolean": true
+          }
+        }
+      ],
+      "returnTo": {
+        "type": "VARIABLE",
+        "variableName": "SampleCopy"
+      }
+    },
+    {
+      "uid": "dd7d4cf8-8f0e-4269-80c0-f5fde5fa2f40",
+      "commandName": "ReadFile",
+      "packageName": "TextFile",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "filePath",
+          "value": {
+            "type": "FILE",
+            "expression": "file://$OriginalCopyTXTPath$"
+          }
+        },
+        {
+          "name": "encoding",
+          "value": {
+            "type": "STRING",
+            "string": "FILE-ENCODING"
+          }
+        },
+        {
+          "name": "trimLeadingSpace",
+          "value": {
+            "type": "BOOLEAN",
+            "boolean": false
+          }
+        },
+        {
+          "name": "trimTrailingSpace",
+          "value": {
+            "type": "BOOLEAN",
+            "boolean": false
+          }
+        }
+      ],
+      "returnTo": {
+        "type": "VARIABLE",
+        "variableName": "Content1"
+      }
+    },
+    {
+      "uid": "dfed0534-725d-4b93-8b41-a5f8396e3a38",
+      "commandName": "python.commands.executeFunction",
+      "packageName": "Python",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "session",
+          "value": {
+            "type": "STRING",
+            "string": "Default"
+          }
+        },
+        {
+          "name": "functionName",
+          "value": {
+            "type": "STRING",
+            "expression": "$ReadOriginalFunction$"
+          }
+        },
+        {
+          "name": "argument",
+          "value": {
+            "type": "VARIABLE",
+            "variableName": "Content1"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "4c57a1f0-0b39-4363-9531-10e7a8c652fa",
+      "commandName": "loop.commands.start",
+      "packageName": "Loop",
+      "disabled": false,
+      "children": [
+        {
+          "uid": "b2949486-d9dd-4c61-acab-b9dbf5d76624",
+          "commandName": "extractText",
+          "packageName": "PDF",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "filePath",
+              "value": {
+                "type": "FILE",
+                "expression": "file://$SubmissionsFolderPath$/$FilesInFolder{name}$.$FilesInFolder{extension}$"
+              }
+            },
+            {
+              "name": "extractTextType",
+              "value": {
+                "type": "STRING",
+                "string": "PLAIN"
+              }
+            },
+            {
+              "name": "pageOption",
+              "value": {
+                "type": "STRING",
+                "string": "ALL"
+              }
+            },
+            {
+              "name": "outputFile",
+              "value": {
+                "type": "FILE",
+                "expression": "file://$CurrentTXTPath$"
+              }
+            },
+            {
+              "name": "overwriteFile",
+              "value": {
+                "type": "BOOLEAN",
+                "boolean": true
+              }
+            }
+          ]
+        },
+        {
+          "uid": "bb233fbe-11fb-44c4-96a1-d22c0f0a8c01",
+          "commandName": "ReadFile",
+          "packageName": "TextFile",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "filePath",
+              "value": {
+                "type": "FILE",
+                "expression": "file://$CurrentTXTPath$"
+              }
+            },
+            {
+              "name": "encoding",
+              "value": {
+                "type": "STRING",
+                "string": "FILE-ENCODING"
+              }
+            },
+            {
+              "name": "trimLeadingSpace",
+              "value": {
+                "type": "BOOLEAN",
+                "boolean": false
+              }
+            },
+            {
+              "name": "trimTrailingSpace",
+              "value": {
+                "type": "BOOLEAN",
+                "boolean": false
+              }
+            }
+          ],
+          "returnTo": {
+            "type": "VARIABLE",
+            "variableName": "Content2"
+          }
+        },
+        {
+          "uid": "45a82d1f-71fb-4e29-8676-5e6e78437379",
+          "commandName": "python.commands.executeFunction",
+          "packageName": "Python",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "session",
+              "value": {
+                "type": "STRING",
+                "string": "Default"
+              }
+            },
+            {
+              "name": "functionName",
+              "value": {
+                "type": "STRING",
+                "expression": "$ReadSubmittedFunction$"
+              }
+            },
+            {
+              "name": "argument",
+              "value": {
+                "type": "VARIABLE",
+                "variableName": "Content2"
+              }
+            }
+          ]
+        },
+        {
+          "uid": "7c0953ba-adfb-4273-9b37-a44598cd989c",
+          "commandName": "python.commands.executeFunction",
+          "packageName": "Python",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "session",
+              "value": {
+                "type": "STRING",
+                "string": "Default"
+              }
+            },
+            {
+              "name": "functionName",
+              "value": {
+                "type": "STRING",
+                "expression": "$GetResultFunction$"
+              }
+            }
+          ],
+          "returnTo": {
+            "type": "VARIABLE",
+            "variableName": "CosineSimilarity"
+          }
+        },
+        {
+          "uid": "ddbe06d3-0724-4d56-b388-3c111c35891a",
+          "commandName": "toNumber",
+          "packageName": "String",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "sourceString",
+              "value": {
+                "type": "STRING",
+                "expression": "$CosineSimilarity$"
+              }
+            }
+          ],
+          "returnTo": {
+            "type": "VARIABLE",
+            "variableName": "Score"
+          }
+        },
+        {
+          "uid": "f1f1a4fb-d23a-47ba-9d0f-aac3f3386cde",
+          "commandName": "if",
+          "packageName": "If",
+          "disabled": false,
+          "children": [
+            {
+              "uid": "f5c540a6-b770-4f04-87bd-45c901d1838b",
+              "commandName": "assign",
+              "packageName": "Boolean",
+              "disabled": false,
+              "attributes": [
+                {
+                  "name": "source",
+                  "value": {
+                    "type": "STRING",
+                    "string": "constant"
+                  }
+                },
+                {
+                  "name": "userDefined",
+                  "value": {
+                    "type": "STRING",
+                    "string": "true"
+                  }
+                }
+              ],
+              "returnTo": {
+                "type": "VARIABLE",
+                "variableName": "Accepted"
+              }
+            }
+          ],
+          "branches": [
+            {
+              "uid": "ba12b011-280e-4054-a4f6-7e91c10aaa29",
+              "commandName": "else",
+              "packageName": "If",
+              "disabled": false,
+              "children": [
+                {
+                  "uid": "85f0273b-a040-4ccb-8d2b-0ab98eacb779",
+                  "commandName": "assign",
+                  "packageName": "Boolean",
+                  "disabled": false,
+                  "attributes": [
+                    {
+                      "name": "source",
+                      "value": {
+                        "type": "STRING",
+                        "string": "constant"
+                      }
+                    },
+                    {
+                      "name": "userDefined",
+                      "value": {
+                        "type": "STRING",
+                        "string": "false"
+                      }
+                    }
+                  ],
+                  "returnTo": {
+                    "type": "VARIABLE",
+                    "variableName": "Accepted"
+                  }
+                },
+                {
+                  "uid": "b6c08ae3-df77-4310-81b8-23904c6679a4",
+                  "commandName": "OpenSpreadsheet",
+                  "packageName": "Excel_MS",
+                  "disabled": false,
+                  "attributes": [
+                    {
+                      "name": "excelSourceOption",
+                      "value": {
+                        "type": "STRING",
+                        "string": "desktopfilepath"
+                      }
+                    },
+                    {
+                      "name": "filePath",
+                      "value": {
+                        "type": "FILE",
+                        "expression": "file://$MailExcelPath$"
+                      }
+                    },
+                    {
+                      "name": "containsHeader",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": true
+                      }
+                    },
+                    {
+                      "name": "isSpecificSheet",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": false
+                      }
+                    },
+                    {
+                      "name": "fileAccessMode",
+                      "value": {
+                        "type": "STRING",
+                        "string": "EDIT"
+                      }
+                    },
+                    {
+                      "name": "isSecure",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": false
+                      }
+                    },
+                    {
+                      "name": "loadAddIns",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": false
+                      }
+                    },
+                    {
+                      "name": "excludeHiddenSheets",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": false
+                      }
+                    },
+                    {
+                      "name": "containsChart",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": false
+                      }
+                    }
+                  ],
+                  "returnTo": {
+                    "type": "SESSION",
+                    "sessionName": {
+                      "type": "STRING",
+                      "string": "Default"
+                    },
+                    "sessionTarget": "LOCAL"
+                  }
+                },
+                {
+                  "uid": "97a8b5f0-4d2d-401a-811c-e36e4af08218",
+                  "commandName": "find",
+                  "packageName": "Excel_MS",
+                  "disabled": false,
+                  "attributes": [
+                    {
+                      "name": "from",
+                      "value": {
+                        "type": "STRING",
+                        "string": "BEGINNING"
+                      }
+                    },
+                    {
+                      "name": "till",
+                      "value": {
+                        "type": "STRING",
+                        "string": "END"
+                      }
+                    },
+                    {
+                      "name": "findText",
+                      "value": {
+                        "type": "STRING",
+                        "expression": "$FilesInFolder{name}$"
+                      }
+                    },
+                    {
+                      "name": "searchOptions",
+                      "value": {
+                        "type": "STRING",
+                        "string": "BYROWS"
+                      }
+                    },
+                    {
+                      "name": "matchCase",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": false
+                      }
+                    },
+                    {
+                      "name": "matchEntireCell",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": false
+                      }
+                    },
+                    {
+                      "name": "session",
+                      "value": {
+                        "type": "SESSION",
+                        "sessionName": {
+                          "type": "STRING",
+                          "string": "Default"
+                        }
+                      }
+                    }
+                  ],
+                  "returnTo": {
+                    "type": "VARIABLE",
+                    "variableName": "ExcelCellAddresses"
+                  }
+                },
+                {
+                  "uid": "594814d9-41d6-427c-9b04-666aa707f953",
+                  "commandName": "beforeAfter",
+                  "packageName": "String",
+                  "disabled": false,
+                  "attributes": [
+                    {
+                      "name": "sourceString",
+                      "value": {
+                        "type": "STRING",
+                        "expression": "$ExcelCellAddresses[0]$"
+                      }
+                    },
+                    {
+                      "name": "getCharacters",
+                      "value": {
+                        "type": "STRING",
+                        "string": "BEFORE"
+                      }
+                    },
+                    {
+                      "name": "beforeString",
+                      "value": {
+                        "type": "STRING",
+                        "string": ""
+                      }
+                    },
+                    {
+                      "name": "beforeOccurrence",
+                      "value": {
+                        "type": "NUMBER",
+                        "number": "1"
+                      }
+                    },
+                    {
+                      "name": "ifNoMatchFound",
+                      "value": {
+                        "type": "STRING",
+                        "string": "EMPTY"
+                      }
+                    },
+                    {
+                      "name": "noOfCharsToGet",
+                      "value": {
+                        "type": "STRING",
+                        "string": "ALL"
+                      }
+                    },
+                    {
+                      "name": "isCaseSensitive",
+                      "value": {
+                        "type": "STRING",
+                        "string": "true"
+                      }
+                    },
+                    {
+                      "name": "trimSpaces",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": true
+                      }
+                    },
+                    {
+                      "name": "removeEnter",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": true
+                      }
+                    }
+                  ],
+                  "returnTo": {
+                    "type": "VARIABLE",
+                    "variableName": "MailCell"
+                  }
+                },
+                {
+                  "uid": "aec70738-ea79-43b2-a814-78c3de4c57ab",
+                  "commandName": "subString",
+                  "packageName": "String",
+                  "disabled": false,
+                  "attributes": [
+                    {
+                      "name": "sourceString",
+                      "value": {
+                        "type": "STRING",
+                        "expression": "$ExcelCellAddresses[0]$"
+                      }
+                    },
+                    {
+                      "name": "startIndex",
+                      "value": {
+                        "type": "NUMBER",
+                        "number": "2"
+                      }
+                    },
+                    {
+                      "name": "returnBlankIfRangeNotFound",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": false
+                      }
+                    }
+                  ],
+                  "returnTo": {
+                    "type": "VARIABLE",
+                    "variableName": "MailRow"
+                  }
+                },
+                {
+                  "uid": "8b748732-e35e-43cf-ac19-d1810a8e1b98",
+                  "commandName": "assign",
+                  "packageName": "String",
+                  "disabled": false,
+                  "attributes": [
+                    {
+                      "name": "sourceString",
+                      "value": {
+                        "type": "STRING",
+                        "expression": "B$MailRow$"
+                      }
+                    }
+                  ],
+                  "returnTo": {
+                    "type": "VARIABLE",
+                    "variableName": "MailCell"
+                  }
+                },
+                {
+                  "uid": "b2f12cae-8327-4737-b049-31b080658126",
+                  "commandName": "GetSingleCell",
+                  "packageName": "Excel_MS",
+                  "disabled": false,
+                  "attributes": [
+                    {
+                      "name": "activeCell",
+                      "value": {
+                        "type": "STRING",
+                        "string": "false"
+                      }
+                    },
+                    {
+                      "name": "cell",
+                      "value": {
+                        "type": "STRING",
+                        "expression": "$MailCell$"
+                      }
+                    },
+                    {
+                      "name": "readOption",
+                      "value": {
+                        "type": "STRING",
+                        "string": "READ_CELL_TEXT"
+                      }
+                    },
+                    {
+                      "name": "session",
+                      "value": {
+                        "type": "SESSION",
+                        "sessionName": {
+                          "type": "STRING",
+                          "string": "Default"
+                        }
+                      }
+                    }
+                  ],
+                  "returnTo": {
+                    "type": "VARIABLE",
+                    "variableName": "ReceiversMail"
+                  }
+                },
+                {
+                  "uid": "113d2358-9ef5-4ea0-970a-2c45815b3412",
+                  "commandName": "GetSingleCell",
+                  "packageName": "Excel_MS",
+                  "disabled": false,
+                  "attributes": [
+                    {
+                      "name": "activeCell",
+                      "value": {
+                        "type": "STRING",
+                        "string": "false"
+                      }
+                    },
+                    {
+                      "name": "cell",
+                      "value": {
+                        "type": "STRING",
+                        "expression": "C$MailRow$"
+                      }
+                    },
+                    {
+                      "name": "readOption",
+                      "value": {
+                        "type": "STRING",
+                        "string": "READ_CELL_TEXT"
+                      }
+                    },
+                    {
+                      "name": "session",
+                      "value": {
+                        "type": "SESSION",
+                        "sessionName": {
+                          "type": "STRING",
+                          "string": "Default"
+                        }
+                      }
+                    }
+                  ],
+                  "returnTo": {
+                    "type": "VARIABLE",
+                    "variableName": "StudentName"
+                  }
+                },
+                {
+                  "uid": "de2d9e60-7778-45bb-8494-a2e6fe3a8c29",
+                  "commandName": "CloseSpreadsheet",
+                  "packageName": "Excel_MS",
+                  "disabled": false,
+                  "attributes": [
+                    {
+                      "name": "isSave",
+                      "value": {
+                        "boolean": true,
+                        "type": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "name": "session",
+                      "value": {
+                        "sessionName": {
+                          "string": "Default",
+                          "type": "STRING"
+                        },
+                        "type": "SESSION"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "uid": "b6c20b45-6fb0-45c5-aaf3-0313ea2b1ad3",
+                  "commandName": "SendMailV2",
+                  "packageName": "Email",
+                  "disabled": false,
+                  "attributes": [
+                    {
+                      "name": "toAddress",
+                      "value": {
+                        "type": "STRING",
+                        "expression": "$ReceiversMail$"
+                      }
+                    },
+                    {
+                      "name": "cc",
+                      "value": {
+                        "type": "STRING",
+                        "expression": "$FacultyMail$"
+                      }
+                    },
+                    {
+                      "name": "bcc",
+                      "value": {
+                        "type": "STRING",
+                        "string": ""
+                      }
+                    },
+                    {
+                      "name": "invalidAddress",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": false
+                      }
+                    },
+                    {
+                      "name": "subject",
+                      "value": {
+                        "type": "STRING",
+                        "string": "Submission Rejected"
+                      }
+                    },
+                    {
+                      "name": "ensureAttachmentsExist",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": false
+                      }
+                    },
+                    {
+                      "name": "bodyFormat",
+                      "value": {
+                        "type": "STRING",
+                        "string": "PLAINTEXT"
+                      }
+                    },
+                    {
+                      "name": "message",
+                      "value": {
+                        "type": "STRING",
+                        "expression": "Dear $StudentName$,\n\nYour submission $FilesInFolder{name}$.$FilesInFolder{extension}$ has been rejected due lack of relevant content.\n\nPlease re-submit your work. \n\nContact respective faculty for re-valuation.\n\nRegards,\n$FacultyName$"
+                      }
+                    },
+                    {
+                      "name": "goGreen",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": true
+                      }
+                    },
+                    {
+                      "name": "serverType",
+                      "value": {
+                        "type": "STRING",
+                        "string": "EMAIL_SERVER"
+                      }
+                    },
+                    {
+                      "name": "fromAddress",
+                      "value": {
+                        "type": "STRING",
+                        "expression": "$SenderEmail$"
+                      }
+                    },
+                    {
+                      "name": "useSecureConnection",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": true
+                      }
+                    },
+                    {
+                      "name": "emailServerHost",
+                      "value": {
+                        "type": "STRING",
+                        "string": "smtp.gmail.com"
+                      }
+                    },
+                    {
+                      "name": "emailServerPort",
+                      "value": {
+                        "type": "NUMBER",
+                        "number": "587"
+                      }
+                    },
+                    {
+                      "name": "requiresAuthentication",
+                      "value": {
+                        "type": "BOOLEAN",
+                        "boolean": true
+                      }
+                    },
+                    {
+                      "name": "emailServerAuthType",
+                      "value": {
+                        "type": "STRING",
+                        "string": "Basic"
+                      }
+                    },
+                    {
+                      "name": "username",
+                      "value": {
+                        "type": "CREDENTIAL",
+                        "credential": {
+                          "name": "Google Authentication",
+                          "lockerName": "Login Credentials",
+                          "attributeName": "Email"
+                        }
+                      }
+                    },
+                    {
+                      "name": "securedPassword",
+                      "value": {
+                        "type": "CREDENTIAL",
+                        "credential": {
+                          "name": "Google Authentication",
+                          "lockerName": "Login Credentials",
+                          "attributeName": "Password"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "attributes": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "NUMBER",
+                    "expression": "$Score$"
+                  }
+                },
+                {
+                  "name": "operator",
+                  "value": {
+                    "type": "STRING",
+                    "string": "GT"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "NUMBER",
+                    "expression": "$TargetScore$"
+                  }
+                }
+              ],
+              "name": "condition",
+              "value": {
+                "type": "CONDITIONAL",
+                "conditionalName": "numberVariable",
+                "packageName": "Number"
+              }
+            }
+          ]
+        },
+        {
+          "uid": "2fcb2b0a-8d2a-48e7-bc5b-81cb21cb061f",
+          "commandName": "toString",
+          "packageName": "Number",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "input",
+              "value": {
+                "type": "NUMBER",
+                "expression": "$Score$"
+              }
+            },
+            {
+              "name": "numFormatDigits",
+              "value": {
+                "type": "NUMBER",
+                "number": "2"
+              }
+            }
+          ],
+          "returnTo": {
+            "type": "VARIABLE",
+            "variableName": "ScoreString"
+          }
+        },
+        {
+          "uid": "42d8d210-dce9-440d-a60d-863eca7a5454",
+          "commandName": "toString",
+          "packageName": "Boolean",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "source",
+              "value": {
+                "type": "VARIABLE",
+                "variableName": "Accepted"
+              }
+            }
+          ],
+          "returnTo": {
+            "type": "VARIABLE",
+            "variableName": "AcceptedStatusString"
+          }
+        },
+        {
+          "uid": "8e7c1427-d8df-4ad1-9bd4-cd3c4ed7a15b",
+          "commandName": "setCellValue",
+          "packageName": "DataTable",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "table",
+              "value": {
+                "type": "VARIABLE",
+                "variableName": "Results"
+              }
+            },
+            {
+              "name": "rowPosition",
+              "value": {
+                "type": "NUMBER",
+                "expression": "$RowIndex$"
+              }
+            },
+            {
+              "name": "columnType",
+              "value": {
+                "type": "STRING",
+                "string": "colName"
+              }
+            },
+            {
+              "name": "columnName",
+              "value": {
+                "type": "STRING",
+                "string": "Roll Number"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "STRING",
+                "expression": "$FilesInFolder{name}$"
+              }
+            }
+          ]
+        },
+        {
+          "uid": "39a18d40-2f8c-416b-8bca-31fb94736afe",
+          "commandName": "setCellValue",
+          "packageName": "DataTable",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "table",
+              "value": {
+                "type": "VARIABLE",
+                "variableName": "Results"
+              }
+            },
+            {
+              "name": "rowPosition",
+              "value": {
+                "type": "NUMBER",
+                "expression": "$RowIndex$"
+              }
+            },
+            {
+              "name": "columnType",
+              "value": {
+                "type": "STRING",
+                "string": "colName"
+              }
+            },
+            {
+              "name": "columnName",
+              "value": {
+                "type": "STRING",
+                "string": "File Name"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "STRING",
+                "expression": "$FilesInFolder{name}$.$FilesInFolder{extension}$"
+              }
+            }
+          ]
+        },
+        {
+          "uid": "3396edf8-8a0d-4b04-8e4f-d0d717f82062",
+          "commandName": "setCellValue",
+          "packageName": "DataTable",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "table",
+              "value": {
+                "type": "VARIABLE",
+                "variableName": "Results"
+              }
+            },
+            {
+              "name": "rowPosition",
+              "value": {
+                "type": "NUMBER",
+                "expression": "$RowIndex$"
+              }
+            },
+            {
+              "name": "columnType",
+              "value": {
+                "type": "STRING",
+                "string": "colName"
+              }
+            },
+            {
+              "name": "columnName",
+              "value": {
+                "type": "STRING",
+                "string": "Score"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "STRING",
+                "expression": "$ScoreString$"
+              }
+            }
+          ]
+        },
+        {
+          "uid": "35bcb3f0-2019-4f6f-ab20-780ef2d43f6c",
+          "commandName": "setCellValue",
+          "packageName": "DataTable",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "table",
+              "value": {
+                "type": "VARIABLE",
+                "variableName": "Results"
+              }
+            },
+            {
+              "name": "rowPosition",
+              "value": {
+                "type": "NUMBER",
+                "expression": "$RowIndex$"
+              }
+            },
+            {
+              "name": "columnType",
+              "value": {
+                "type": "STRING",
+                "string": "colName"
+              }
+            },
+            {
+              "name": "columnName",
+              "value": {
+                "type": "STRING",
+                "string": "Result"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "STRING",
+                "expression": "$AcceptedStatusString$"
+              }
+            }
+          ]
+        },
+        {
+          "uid": "b6265250-d972-46d2-af99-e7fe75bfd1ff",
+          "commandName": "increment",
+          "packageName": "Number",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "source",
+              "value": {
+                "type": "NUMBER",
+                "expression": "$RowIndex$"
+              }
+            },
+            {
+              "name": "by",
+              "value": {
+                "type": "NUMBER",
+                "number": "1"
+              }
+            }
+          ],
+          "returnTo": {
+            "type": "VARIABLE",
+            "variableName": "RowIndex"
+          }
+        },
+        {
+          "uid": "05161492-51cf-439e-a5c5-f6cbd548b638",
+          "commandName": "insertRow",
+          "packageName": "DataTable",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "table",
+              "value": {
+                "type": "VARIABLE",
+                "variableName": "Results"
+              }
+            },
+            {
+              "name": "positionSelection",
+              "value": {
+                "type": "STRING",
+                "string": "lastPosition"
+              }
+            },
+            {
+              "name": "rowRecord",
+              "value": {
+                "type": "VARIABLE",
+                "variableName": "RowRecord"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": [
+        {
+          "name": "loopType",
+          "value": {
+            "type": "STRING",
+            "string": "ITERATOR"
+          }
+        },
+        {
+          "name": "iterator",
+          "returnTo": {
+            "type": "VARIABLE",
+            "variableName": "FilesInFolder"
+          },
+          "attributes": [
+            {
+              "name": "folderPath",
+              "value": {
+                "type": "STRING",
+                "expression": "$SubmissionsFolderPath$"
+              }
+            }
+          ],
+          "value": {
+            "type": "ITERATOR",
+            "iteratorName": "loop.iterators.files",
+            "packageName": "File"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "7cffaaf6-6b87-46d5-9959-f4a6ab8b7941",
+      "commandName": "deleteRow",
+      "packageName": "DataTable",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "table",
+          "value": {
+            "type": "VARIABLE",
+            "variableName": "Results"
+          }
+        },
+        {
+          "name": "inputPosition",
+          "value": {
+            "type": "NUMBER",
+            "expression": "$RowIndex$"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "0f6b6c93-51a7-4c4d-ab50-aaa52304e76e",
+      "commandName": "python.commands.closeScript",
+      "packageName": "Python",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "session",
+          "value": {
+            "string": "Default",
+            "type": "STRING"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "66e4a55e-16d6-4964-99d3-84a0a40dfa59",
+      "commandName": "sort",
+      "packageName": "DataTable",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "table",
+          "value": {
+            "type": "VARIABLE",
+            "variableName": "Results"
+          }
+        },
+        {
+          "name": "sortOptions",
+          "value": {
+            "type": "STRING",
+            "string": "NAME"
+          }
+        },
+        {
+          "name": "columnName",
+          "value": {
+            "type": "STRING",
+            "string": "Roll Number"
+          }
+        },
+        {
+          "name": "sortType",
+          "value": {
+            "type": "STRING",
+            "string": "ASCENDING"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "a94366a6-3c40-48a9-b2f4-54d9c5bea2a9",
+      "commandName": "if",
+      "packageName": "If",
+      "disabled": false,
+      "children": [
+        {
+          "uid": "51b8b27d-fda4-462b-a667-467d9d936c53",
+          "commandName": "deleteFiles",
+          "packageName": "File",
+          "disabled": false,
+          "attributes": [
+            {
+              "name": "filePath",
+              "value": {
+                "type": "FILE",
+                "expression": "file://$ResultsXLSXPath$"
+              }
+            },
+            {
+              "name": "isParallelDelete",
+              "value": {
+                "type": "BOOLEAN",
+                "boolean": false
+              }
+            },
+            {
+              "name": "isSize",
+              "value": {
+                "type": "BOOLEAN",
+                "boolean": false
+              }
+            },
+            {
+              "name": "isDate",
+              "value": {
+                "type": "BOOLEAN",
+                "boolean": false
+              }
+            }
+          ]
+        }
+      ],
+      "branches": [],
+      "attributes": [
+        {
+          "attributes": [
+            {
+              "name": "sourceFilePath",
+              "value": {
+                "type": "FILE",
+                "expression": "file://$ResultsXLSXPath$"
+              }
+            },
+            {
+              "name": "waitTimeout",
+              "value": {
+                "type": "NUMBER",
+                "number": "0"
+              }
+            }
+          ],
+          "name": "condition",
+          "value": {
+            "type": "CONDITIONAL",
+            "conditionalName": "fileExists",
+            "packageName": "File"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "1e775e42-ae9b-401a-b846-f9904bfba021",
+      "commandName": "CreateSpreadsheet",
+      "packageName": "Excel_MS",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "filePath",
+          "value": {
+            "type": "FILE",
+            "expression": "file://$ResultsXLSXPath$"
+          }
+        },
+        {
+          "name": "sheetName",
+          "value": {
+            "type": "STRING",
+            "string": ""
+          }
+        }
+      ],
+      "returnTo": {
+        "type": "SESSION",
+        "sessionName": {
+          "type": "STRING",
+          "string": "Default"
+        },
+        "sessionTarget": "LOCAL"
+      }
+    },
+    {
+      "uid": "2ec19b06-6591-42e6-92d7-ec68446d25c7",
+      "commandName": "writeDataTableToWorksheet",
+      "packageName": "Excel_MS",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "tableObj",
+          "value": {
+            "type": "VARIABLE",
+            "variableName": "Results"
+          }
+        },
+        {
+          "name": "sheetSelection",
+          "value": {
+            "type": "STRING",
+            "string": "ActiveWorksheet"
+          }
+        },
+        {
+          "name": "firstCellAddress",
+          "value": {
+            "type": "STRING",
+            "string": "A1"
+          }
+        },
+        {
+          "name": "session",
+          "value": {
+            "type": "SESSION",
+            "sessionName": {
+              "type": "STRING",
+              "string": "Default"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "uid": "d3e531a8-2f6d-4ab5-bd8f-69e11f01aa65",
+      "commandName": "SaveSpreadSheet",
+      "packageName": "Excel_MS",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "session",
+          "value": {
+            "sessionName": {
+              "string": "Default",
+              "type": "STRING"
+            },
+            "type": "SESSION"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "1e406ff4-4ff3-4d9f-8c67-997b5044106f",
+      "commandName": "CloseSpreadsheet",
+      "packageName": "Excel_MS",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "isSave",
+          "value": {
+            "boolean": true,
+            "type": "BOOLEAN"
+          }
+        },
+        {
+          "name": "session",
+          "value": {
+            "sessionName": {
+              "string": "Default",
+              "type": "STRING"
+            },
+            "type": "SESSION"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "c3144a02-05e5-4cfd-b0d1-a881c93487d0",
+      "commandName": "writeToFile",
+      "packageName": "DataTable",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "sourceTable",
+          "value": {
+            "type": "VARIABLE",
+            "variableName": "Results"
+          }
+        },
+        {
+          "name": "filePath",
+          "value": {
+            "type": "FILE",
+            "expression": "file://$ResultsCSVPath$"
+          }
+        },
+        {
+          "name": "createDirectories",
+          "value": {
+            "type": "BOOLEAN",
+            "boolean": true
+          }
+        },
+        {
+          "name": "appendToExistingFile",
+          "value": {
+            "type": "STRING",
+            "string": "overwrite"
+          }
+        },
+        {
+          "name": "rowDelimiter",
+          "value": {
+            "type": "STRING",
+            "string": "NEW_LINE"
+          }
+        },
+        {
+          "name": "columnDelimiter",
+          "value": {
+            "type": "STRING",
+            "string": "COMMA"
+          }
+        },
+        {
+          "name": "encoding",
+          "value": {
+            "type": "STRING",
+            "string": "ansi"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "13896afc-8e4c-4170-8ce4-2962d04f674a",
+      "commandName": "openFile",
+      "packageName": "File",
+      "disabled": true,
+      "attributes": [
+        {
+          "name": "filePath",
+          "value": {
+            "type": "FILE",
+            "expression": "file://$ResultsCSVPath$"
+          }
+        }
+      ]
+    },
+    {
+      "uid": "5318cd65-9605-4125-9231-e115b0cd8e77",
+      "commandName": "openFile",
+      "packageName": "File",
+      "disabled": false,
+      "attributes": [
+        {
+          "name": "filePath",
+          "value": {
+            "type": "FILE",
+            "expression": "file://$ResultsXLSXPath$"
+          }
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "Content1",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": ""
+      }
+    },
+    {
+      "name": "Content2",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": ""
+      }
+    },
+    {
+      "name": "CosineSimilarity",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": ""
+      }
+    },
+    {
+      "name": "FilesInFolder",
+      "description": "",
+      "type": "DICTIONARY",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "subtype": "STRING",
+      "defaultValue": {
+        "type": "DICTIONARY",
+        "dictionary": []
+      }
+    },
+    {
+      "name": "SampleCopy",
+      "description": "",
+      "type": "DICTIONARY",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "subtype": "STRING",
+      "defaultValue": {
+        "type": "DICTIONARY",
+        "dictionary": []
+      }
+    },
+    {
+      "name": "Results",
+      "description": "",
+      "type": "TABLE",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "TABLE",
+        "table": {
+          "schema": [
+            {
+              "name": "Roll Number",
+              "type": "STRING"
+            },
+            {
+              "name": "File Name",
+              "type": "STRING"
+            },
+            {
+              "name": "Score",
+              "type": "NUMBER"
+            },
+            {
+              "name": "Result",
+              "type": "BOOLEAN"
+            }
+          ],
+          "rows": [
+            {
+              "values": [
+                {
+                  "type": "STRING",
+                  "string": ""
+                },
+                {
+                  "type": "STRING",
+                  "string": ""
+                },
+                {
+                  "type": "NUMBER",
+                  "number": "0"
+                },
+                {
+                  "type": "BOOLEAN",
+                  "boolean": false
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "RowIndex",
+      "description": "",
+      "type": "NUMBER",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "NUMBER",
+        "number": "0"
+      }
+    },
+    {
+      "name": "RowRecord",
+      "description": "",
+      "type": "RECORD",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "schema": [
+        {
+          "name": "Roll Number",
+          "type": "STRING"
+        },
+        {
+          "name": "File Name",
+          "type": "STRING"
+        },
+        {
+          "name": "Score",
+          "type": "NUMBER"
+        },
+        {
+          "name": "Result",
+          "type": "BOOLEAN"
+        }
+      ],
+      "defaultValue": {
+        "type": "RECORD",
+        "record": {
+          "schema": [
+            {
+              "name": "Roll Number",
+              "type": "STRING"
+            },
+            {
+              "name": "File Name",
+              "type": "STRING"
+            },
+            {
+              "name": "Score",
+              "type": "NUMBER"
+            },
+            {
+              "name": "Result",
+              "type": "BOOLEAN"
+            }
+          ],
+          "values": [
+            {
+              "type": "STRING",
+              "string": ""
+            },
+            {
+              "type": "STRING",
+              "string": ""
+            },
+            {
+              "type": "NUMBER",
+              "number": "0"
+            },
+            {
+              "type": "BOOLEAN",
+              "boolean": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Accepted",
+      "description": "",
+      "type": "BOOLEAN",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "BOOLEAN",
+        "boolean": false
+      }
+    },
+    {
+      "name": "Score",
+      "description": "",
+      "type": "NUMBER",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "NUMBER",
+        "number": "0"
+      }
+    },
+    {
+      "name": "TargetScore",
+      "description": "",
+      "type": "NUMBER",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "NUMBER",
+        "number": "60"
+      }
+    },
+    {
+      "name": "ScoreString",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": ""
+      }
+    },
+    {
+      "name": "ResultsCSVPath",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "[Path to Project Directory]\\Drive\\Results.csv"
+      }
+    },
+    {
+      "name": "ResultsXLSXPath",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "[Path to Project Directory]\\Drive\\Results.xlsx"
+      }
+    },
+    {
+      "name": "AcceptedStatusString",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "False"
+      }
+    },
+    {
+      "name": "OriginalCopyPDFPath",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "[Path to Project Directory]\\Drive\\Sample.pdf"
+      }
+    },
+    {
+      "name": "OriginalCopyTXTPath",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "[Path to Project Directory]\\Drive\\Sample.txt"
+      }
+    },
+    {
+      "name": "BotScriptPath",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "[Path to Project Directory]\\cosine_similarity_script.py"
+      }
+    },
+    {
+      "name": "ReadOriginalFunction",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "store_string"
+      }
+    },
+    {
+      "name": "CurrentTXTPath",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "[Path to Project Directory]\\Drive\\Current.txt"
+      }
+    },
+    {
+      "name": "SubmissionsFolderPath",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "[Path to Project Directory]\\Drive\\Submissions"
+      }
+    },
+    {
+      "name": "ReadSubmittedFunction",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "add_compare_string"
+      }
+    },
+    {
+      "name": "GetResultFunction",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "calculate_similarity_score"
+      }
+    },
+    {
+      "name": "SenderEmail",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "[Sender Email Here]"
+      }
+    },
+    {
+      "name": "ReceiversMail",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": ""
+      }
+    },
+    {
+      "name": "FacultyMail",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": ""
+      }
+    },
+    {
+      "name": "MailCell",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": ""
+      }
+    },
+    {
+      "name": "ExcelCellAddresses",
+      "description": "",
+      "type": "LIST",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "subtype": "STRING",
+      "defaultValue": {
+        "type": "LIST",
+        "list": []
+      }
+    },
+    {
+      "name": "MailExcelPath",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "[Path to Project Directory]\\Drive\\Mail.xlsx"
+      }
+    },
+    {
+      "name": "MailRow",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": ""
+      }
+    },
+    {
+      "name": "StudentName",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": ""
+      }
+    },
+    {
+      "name": "FacultyName",
+      "description": "",
+      "type": "STRING",
+      "readOnly": false,
+      "input": false,
+      "output": false,
+      "defaultValue": {
+        "type": "STRING",
+        "string": "[Faculy Name Here]"
+      }
+    }
+  ],
+  "breakpoints": [],
+  "packages": [
+    {
+      "name": "Boolean",
+      "version": "2.11.0",
+      "settingsAttributes": []
+    },
+    {
+      "name": "DataTable",
+      "version": "4.11.0",
+      "settingsAttributes": []
+    },
+    {
+      "name": "Email",
+      "version": "3.21.1",
+      "settingsAttributes": []
+    },
+    {
+      "name": "Excel_MS",
+      "version": "6.19.1",
+      "settingsAttributes": []
+    },
+    {
+      "name": "File",
+      "version": "6.10.1",
+      "settingsAttributes": []
+    },
+    {
+      "name": "If",
+      "version": "3.7.14-20231116-000453",
+      "settingsAttributes": []
+    },
+    {
+      "name": "Loop",
+      "version": "3.8.1-20231117-175130",
+      "settingsAttributes": []
+    },
+    {
+      "name": "Number",
+      "version": "3.9.1",
+      "settingsAttributes": []
+    },
+    {
+      "name": "PDF",
+      "version": "3.10.0",
+      "settingsAttributes": []
+    },
+    {
+      "name": "Python",
+      "version": "2.16.0",
+      "settingsAttributes": []
+    },
+    {
+      "name": "String",
+      "version": "5.9.0",
+      "settingsAttributes": []
+    },
+    {
+      "name": "TextFile",
+      "version": "1.7.0",
+      "settingsAttributes": []
+    }
+  ],
+  "migrationJournalReviewIds": [],
+  "workItemTemplateName": null,
+  "properties": {
+    "botCodeVersion": "6",
+    "improvedNumberSupport": true,
+    "timeout": "0s",
+    "automationPriority": "PRIORITY_MEDIUM"
+  }
+}
